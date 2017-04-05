@@ -28,5 +28,19 @@ read_dexcom = function(path, raw_sheet = TRUE) {
   }
   res$PatientInfoField = NULL
   res$PatientInfoValue = NULL
+  list(
+    Dexcom = c("GlucoseDisplayTime",
+               "GlucoseValue", "ingptid", "visit", "drop", "comment", "file"
+    ),
+    DexcomRaw = c("GlucoseInternalTime", "GlucoseDisplayTime",
+                  "GlucoseValue", "MeterInternalTime", "MeterDisplayTime", "MeterValue",
+                  "EventLoggedInternalTime", "EventLoggedDisplayTime", "EventTime",
+                  "EventType", "EventDescription", "file")
+  )
+  res = dplyr::rename(
+    res,
+    time = GlucoseDisplayTime,
+    glucose = GlucoseValue
+  )
   return(res)
 }

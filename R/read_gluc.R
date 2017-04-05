@@ -39,6 +39,13 @@ read_gluc = function(
       res$file = path
     }
   } else {
+    ######################
+    # CRAN NOTE WORKAROUND
+    ######################
+    NUMBER_OF_TIME_POINTS = RERUN_INDEX = NULL
+    rm(list = c("NUMBER_OF_TIME_POINTS", "RERUN_INDEX"))
+
+
     res = pblapply(path, function(x) {
       args$path = x
       res = do.call(what = func, args = args)
@@ -52,6 +59,7 @@ read_gluc = function(
     res$RERUN_INDEX = seq(nrow(res))
     res = dplyr::group_by(.data = res, file)
     tal = dplyr::tally(res)
+
     colnames(tal) = c("file", "NUMBER_OF_TIME_POINTS")
     res = dplyr::left_join(res, tal, by = "file")
     res = dplyr::filter(res, NUMBER_OF_TIME_POINTS >= min_rows)

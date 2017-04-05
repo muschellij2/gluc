@@ -4,7 +4,7 @@
 \alias{read_abbott}
 \title{Read Abbott Output Data}
 \usage{
-read_abbott(path, raw_sheet = TRUE)
+read_abbott(path, raw_sheet = TRUE, complete = TRUE)
 }
 \arguments{
 \item{path}{Path of .xlsx file.  Must have a sheet named "AbbottRaw" in it}

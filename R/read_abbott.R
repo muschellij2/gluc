@@ -8,7 +8,8 @@
 #' values.  Otherwise, it will return \code{NULL}
 #' @export
 #' @importFrom readxl read_excel
-read_abbott = function(path, raw_sheet = TRUE) {
+#' @importFrom dplyr rename
+read_abbott = function(path, raw_sheet = TRUE, complete = TRUE) {
   sheet = "Abbott"
   if (raw_sheet) {
     sheet = paste0(sheet, "Raw")
@@ -18,10 +19,18 @@ read_abbott = function(path, raw_sheet = TRUE) {
                    col_names = TRUE,
                    skip = ifelse(raw_sheet, 2, 0))
 
-  cnames = c("ID", "Time", "Record Type",
-             "Historic Glucose (mg/dL)")
+  # cnames = c("ID", "Time", "Record Type",
+  #            "Historic Glucose (mg/dL)")
   if (all(is.na(res))) {
     return(NULL)
+  }
+  res = dplyr::rename(
+    res,
+    time = Time,
+    glucose = `Historic Glucose (mg/dL)`
+  )
+  if (complete) {
+    res = complete_time_df(res)
   }
   return(res)
 }
