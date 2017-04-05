@@ -35,6 +35,12 @@ complete_time_df = function(df, interval = NULL, interval_unit = NULL) {
     warning("Some times are not present in the time_df!")
   }
   df = full_join(time_df, df, by = "time")
+
+  ##############################
+  # Note Workaround
+  time = NULL
+  rm(list = c("time"))
+  ##############################
   df = arrange(df, time)
   df$observed[ is.na(df$observed) ] = FALSE
 

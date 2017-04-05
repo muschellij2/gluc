@@ -3,12 +3,14 @@
 #'
 #' @param path Path of .xlsx file.  Must have a sheet named "DexcomRaw" in it
 #' @param raw_sheet Should the raw or processed sheet be read in?
+#' @param complete Should all the times be completed for the data?
+#' @param ... additional arguments passed to \code{complete_time_df}
 #'
 #' @return If the sheet is not empty, it will return a \code{data.frame} of
 #' values.  Otherwise, it will return \code{NULL}
 #' @export
 #' @importFrom readxl read_excel
-read_dexcom = function(path, raw_sheet = TRUE) {
+read_dexcom = function(path, raw_sheet = TRUE, complete = TRUE, ...) {
   sheet = "Dexcom"
   if (raw_sheet) {
     sheet = paste0(sheet, "Raw")
@@ -37,10 +39,19 @@ read_dexcom = function(path, raw_sheet = TRUE) {
                   "EventLoggedInternalTime", "EventLoggedDisplayTime", "EventTime",
                   "EventType", "EventDescription", "file")
   )
+  ##############################
+  # Note Workaround
+  GlucoseDisplayTime = GlucoseValue = NULL
+  rm(list = c("GlucoseDisplayTime", "GlucoseValue"))
+  ##############################
+
   res = dplyr::rename(
     res,
     time = GlucoseDisplayTime,
     glucose = GlucoseValue
   )
+  if (complete) {
+    res = complete_time_df(res, ...)
+  }
   return(res)
 }

@@ -26,6 +26,7 @@ create_all_intervals = function(times,
   return(out_times)
 }
 
+#' @rdname create_all_intervals
 #' @export
 create_all_intervals_df = function(...) {
   times = create_all_intervals(...)

@@ -3,13 +3,16 @@
 #'
 #' @param path Path of .xlsx file.  Must have a sheet named "AbbottRaw" in it
 #' @param raw_sheet Should the raw or processed sheet be read in?
+#' @param complete Should all the times be completed for the data?
+#' @param ... additional arguments passed to \code{complete_time_df}
 #'
 #' @return If the sheet is not empty, it will return a \code{data.frame} of
 #' values.  Otherwise, it will return \code{NULL}
 #' @export
 #' @importFrom readxl read_excel
 #' @importFrom dplyr rename
-read_abbott = function(path, raw_sheet = TRUE, complete = TRUE) {
+read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
+                       ) {
   sheet = "Abbott"
   if (raw_sheet) {
     sheet = paste0(sheet, "Raw")
@@ -24,13 +27,18 @@ read_abbott = function(path, raw_sheet = TRUE, complete = TRUE) {
   if (all(is.na(res))) {
     return(NULL)
   }
+  ##############################
+  # Note Workaround
+  Time = `Historic Glucose (mg/dL)` = NULL
+  rm(list = c("Time", "Historic Glucose (mg/dL)"))
+  ##############################
   res = dplyr::rename(
     res,
     time = Time,
     glucose = `Historic Glucose (mg/dL)`
   )
   if (complete) {
-    res = complete_time_df(res)
+    res = complete_time_df(res, ...)
   }
   return(res)
 }

@@ -2,9 +2,12 @@
 % Please edit documentation in R/create_all_intervals.R
 \name{create_all_intervals}
 \alias{create_all_intervals}
+\alias{create_all_intervals_df}
 \title{Create all time intervals for a recording}
 \usage{
 create_all_intervals(times, interval, interval_unit = "mins")
+
+create_all_intervals_df(...)
 }
 \arguments{
 \item{times}{Vector of times, usually POSIXct or other date format}

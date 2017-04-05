@@ -4,12 +4,16 @@
 \alias{read_abbott}
 \title{Read Abbott Output Data}
 \usage{
-read_abbott(path, raw_sheet = TRUE, complete = TRUE)
+read_abbott(path, raw_sheet = TRUE, complete = TRUE, ...)
 }
 \arguments{
 \item{path}{Path of .xlsx file.  Must have a sheet named "AbbottRaw" in it}
 
 \item{raw_sheet}{Should the raw or processed sheet be read in?}
+
+\item{complete}{Should all the times be completed for the data?}
+
+\item{...}{additional arguments passed to \code{complete_time_df}}
 }
 \value{
 If the sheet is not empty, it will return a \code{data.frame} of
