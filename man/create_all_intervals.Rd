@@ -28,5 +28,5 @@ Creates all the times for a certain interval
 \note{
 The additional \code{create_all_intervals_df} function is
 to simply put this vector into a \code{data.frame} in a column called
-\code{time}
+\code{time} and a logical called \code{grid}
 }

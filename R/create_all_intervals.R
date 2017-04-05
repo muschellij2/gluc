@@ -10,7 +10,7 @@
 #' (including some potential roundup)
 #' @note The additional \code{create_all_intervals_df} function is
 #' to simply put this vector into a \code{data.frame} in a column called
-#' \code{time}
+#' \code{time} and a logical called \code{grid}
 #' @export
 create_all_intervals = function(times,
                                 interval,
@@ -30,5 +30,7 @@ create_all_intervals = function(times,
 #' @export
 create_all_intervals_df = function(...) {
   times = create_all_intervals(...)
-  data.frame(time = times, stringsAsFactors = FALSE)
+  data.frame(time = times,
+             grid = TRUE,
+             stringsAsFactors = FALSE)
 }

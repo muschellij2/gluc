@@ -35,6 +35,7 @@ complete_time_df = function(df, interval = NULL, interval_unit = NULL) {
     warning("Some times are not present in the time_df!")
   }
   df = full_join(time_df, df, by = "time")
+  df$grid[ is.na(df$grid)] = FALSE
 
   ##############################
   # Note Workaround
