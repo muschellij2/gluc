@@ -32,8 +32,8 @@ read_dexcom = function(path, raw_sheet = TRUE, complete = TRUE, ...) {
   res$PatientInfoValue = NULL
   ##############################
   # Note Workaround
-  GlucoseDisplayTime = GlucoseValue = NULL
-  rm(list = c("GlucoseDisplayTime", "GlucoseValue"))
+  GlucoseDisplayTime = GlucoseValue = time = NULL
+  rm(list = c("GlucoseDisplayTime", "GlucoseValue", "time"))
   ##############################
 
   res = dplyr::rename(
