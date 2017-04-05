@@ -22,8 +22,30 @@ read_gluc = function(
                 Abbott = "read_abbott",
                 Dexcom = "read_dexcom")
 
-  args = list(path = path, raw_sheet = raw_sheet, ...)
-  res = do.call(what = func, args = args)
+  args = list(raw_sheet = raw_sheet, ...)
+
+  ##############################
+  # Ability to run multiple paths
+  ##############################
+  one_path = length(path) == 1
+  if (one_path) {
+    args$path = path
+    res = do.call(what = func, args = args)
+    if (!is.null(res)) {
+      res$file = path
+    }
+  } else {
+    res = lapply(path, function(x) {
+      args$path = x
+      res = do.call(what = func, args = args)
+      if (!is.null(res)) {
+        res$file = x
+      }
+      return(res)
+    })
+    res = data.table::rbindlist(res, fill = TRUE)
+    res = as.data.frame(res)
+  }
 
   if (!is.null(res)) {
     attr(res, "gluc_type") = type
