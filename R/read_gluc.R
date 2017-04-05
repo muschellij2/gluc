@@ -53,12 +53,11 @@ read_gluc = function(
     res = dplyr::group_by(.data = res, file)
     tal = dplyr::tally(res)
     colnames(tal) = c("file", "NUMBER_OF_TIME_POINTS")
-    res = dplyr::left_join(res, tal, by = file)
+    res = dplyr::left_join(res, tal, by = "file")
     res = dplyr::filter(res, NUMBER_OF_TIME_POINTS >= min_rows)
     res$NUMBER_OF_TIME_POINTS = NULL
     res = dplyr::arrange(res, RERUN_INDEX)
     res$RERUN_INDEX = NULL
-
   }
 
   if (!is.null(res)) {
