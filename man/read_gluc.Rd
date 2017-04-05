@@ -4,12 +4,15 @@
 \alias{read_gluc}
 \title{Read Glucose XLS Data file}
 \usage{
-read_gluc(path, type = c("Abbott", "Dexcom", "AbbottRaw", "DexcomRaw"), ...)
+read_gluc(path, type = c("Abbott", "Dexcom", "AbbottRaw", "DexcomRaw"),
+  min_rows = 5, ...)
 }
 \arguments{
 \item{path}{path of xlsx file}
 
 \item{type}{type of file to read}
+
+\item{min_rows}{Minimum number of rows}
 
 \item{...}{additional argument to send to the read function related to
 \code{type}}
