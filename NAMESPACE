@@ -3,4 +3,5 @@
 export(read_abbott)
 export(read_dexcom)
 export(read_gluc)
+export(read_gluc_all)
 importFrom(readxl,read_excel)
