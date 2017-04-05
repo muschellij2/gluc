@@ -4,6 +4,7 @@
 #'
 #' @param path paths of xlsx files
 #' @param type type of file to read, defaults to all
+#' @param verbose print diagnostic messages
 #' @param ... additional argument to send to the read function related to
 #' \code{type}
 #'
@@ -13,10 +14,14 @@ read_gluc_all = function(
   path,
   type = c("Abbott", "Dexcom",
            "AbbottRaw", "DexcomRaw"),
+  verbose = TRUE,
   ...){
 
   type = match.arg(type, several.ok = TRUE)
   res = lapply(type, function(x) {
+    if (verbose) {
+      message("Reading in ", x, " sheets")
+    }
     read_gluc(path = path, type = x, ...)
   })
   names(res) = type

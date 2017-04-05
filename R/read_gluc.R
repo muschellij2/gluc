@@ -4,10 +4,12 @@
 #'
 #' @param path path of xlsx file
 #' @param type type of file to read
+#' @param verbose print diagnostic messages
 #' @param ... additional argument to send to the read function related to
 #' \code{type}
 #'
 #' @return A \code{tbl} data.frame type.
+#' @importFrom pbapply pblapply
 #' @export
 read_gluc = function(
   path,
@@ -35,7 +37,7 @@ read_gluc = function(
       res$file = path
     }
   } else {
-    res = lapply(path, function(x) {
+    res = pblapply(path, function(x) {
       args$path = x
       res = do.call(what = func, args = args)
       if (!is.null(res)) {

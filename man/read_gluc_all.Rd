@@ -5,12 +5,14 @@
 \title{Read All Glucose Sheets from file}
 \usage{
 read_gluc_all(path, type = c("Abbott", "Dexcom", "AbbottRaw", "DexcomRaw"),
-  ...)
+  verbose = TRUE, ...)
 }
 \arguments{
 \item{path}{paths of xlsx files}
 
 \item{type}{type of file to read, defaults to all}
+
+\item{verbose}{print diagnostic messages}
 
 \item{...}{additional argument to send to the read function related to
 \code{type}}
