@@ -4,7 +4,6 @@
 #'
 #' @param path path of xlsx file
 #' @param type type of file to read
-#' @param verbose print diagnostic messages
 #' @param ... additional argument to send to the read function related to
 #' \code{type}
 #'

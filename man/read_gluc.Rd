@@ -13,8 +13,6 @@ read_gluc(path, type = c("Abbott", "Dexcom", "AbbottRaw", "DexcomRaw"), ...)
 
 \item{...}{additional argument to send to the read function related to
 \code{type}}
-
-\item{verbose}{print diagnostic messages}
 }
 \value{
 A \code{tbl} data.frame type.
