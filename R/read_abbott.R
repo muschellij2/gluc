@@ -11,6 +11,9 @@ read_abbott = function(path) {
   res = read_excel(path = path,
                    sheet = "AbbottRaw",
                    col_names = FALSE)
+
+  cnames = c("ID", "Time", "Record Type",
+             "Historic Glucose (mg/dL)")
   if (all(is.na(res))) {
     return(NULL)
   }
