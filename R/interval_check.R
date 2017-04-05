@@ -1,5 +1,6 @@
 #' @title Check the interval timing for glucose monitoring
-#'
+#' @description Takes in a vector fo times, finds the gaps in the intervals and
+#' determines if all gaps are multiples of the smallest gap.
 #' @param times A Date vector of day/times for records
 #'
 #' @return A list of a logical if all differences are multiples of the minimum
