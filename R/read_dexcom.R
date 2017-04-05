@@ -41,6 +41,8 @@ read_dexcom = function(path, raw_sheet = TRUE, complete = TRUE, ...) {
     time = GlucoseDisplayTime,
     glucose = GlucoseValue
   )
+  res = dplyr::filter(res, !is.na(time))
+
   if (complete) {
     res = complete_time_df(res, ...)
   }

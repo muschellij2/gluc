@@ -10,7 +10,7 @@
 #' values.  Otherwise, it will return \code{NULL}
 #' @export
 #' @importFrom readxl read_excel
-#' @importFrom dplyr rename
+#' @importFrom dplyr rename filter
 read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
                        ) {
   sheet = "Abbott"
@@ -37,6 +37,7 @@ read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
     time = Time,
     glucose = `Historic Glucose (mg/dL)`
   )
+  res = dplyr::filter(res, !is.na(time))
   if (complete) {
     res = complete_time_df(res, ...)
   }
