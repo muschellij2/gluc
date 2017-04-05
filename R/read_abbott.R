@@ -4,7 +4,7 @@
 #' @param path Path of .xlsx file.  Must have a sheet named "AbbottRaw" in it
 #' @param raw_sheet Should the raw or processed sheet be read in?
 #' @param complete Should all the times be completed for the data?
-#' @param ... additional arguments passed to \code{complete_time_df}
+#' @param ... additional arguments passed to \code{\link{complete_time_df}}
 #'
 #' @return If the sheet is not empty, it will return a \code{data.frame} of
 #' values.  Otherwise, it will return \code{NULL}

@@ -4,7 +4,7 @@
 #' @param path Path of .xlsx file.  Must have a sheet named "DexcomRaw" in it
 #' @param raw_sheet Should the raw or processed sheet be read in?
 #' @param complete Should all the times be completed for the data?
-#' @param ... additional arguments passed to \code{complete_time_df}
+#' @param ... additional arguments passed to \code{\link{complete_time_df}}
 #'
 #' @return If the sheet is not empty, it will return a \code{data.frame} of
 #' values.  Otherwise, it will return \code{NULL}
@@ -18,27 +18,18 @@ read_dexcom = function(path, raw_sheet = TRUE, complete = TRUE, ...) {
   res = read_excel(path = path,
                    sheet = sheet,
                    col_names = TRUE)
-  cnames = c("PatientInfoField", "PatientInfoValue", "GlucoseInternalTime",
-             "GlucoseDisplayTime", "GlucoseValue", "MeterInternalTime",
-             "MeterDisplayTime",
-             "MeterValue", "EventLoggedInternalTime",
-             "EventLoggedDisplayTime",
-             "EventTime", "EventType", "EventDescription")
+  # cnames = c("PatientInfoField", "PatientInfoValue", "GlucoseInternalTime",
+  #            "GlucoseDisplayTime", "GlucoseValue", "MeterInternalTime",
+  #            "MeterDisplayTime",
+  #            "MeterValue", "EventLoggedInternalTime",
+  #            "EventLoggedDisplayTime",
+  #            "EventTime", "EventType", "EventDescription")
 
   if (all(is.na(res))) {
     return(NULL)
   }
   res$PatientInfoField = NULL
   res$PatientInfoValue = NULL
-  list(
-    Dexcom = c("GlucoseDisplayTime",
-               "GlucoseValue", "ingptid", "visit", "drop", "comment", "file"
-    ),
-    DexcomRaw = c("GlucoseInternalTime", "GlucoseDisplayTime",
-                  "GlucoseValue", "MeterInternalTime", "MeterDisplayTime", "MeterValue",
-                  "EventLoggedInternalTime", "EventLoggedDisplayTime", "EventTime",
-                  "EventType", "EventDescription", "file")
-  )
   ##############################
   # Note Workaround
   GlucoseDisplayTime = GlucoseValue = NULL

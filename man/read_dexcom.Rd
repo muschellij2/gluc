@@ -13,7 +13,7 @@ read_dexcom(path, raw_sheet = TRUE, complete = TRUE, ...)
 
 \item{complete}{Should all the times be completed for the data?}
 
-\item{...}{additional arguments passed to \code{complete_time_df}}
+\item{...}{additional arguments passed to \code{\link{complete_time_df}}}
 }
 \value{
 If the sheet is not empty, it will return a \code{data.frame} of
