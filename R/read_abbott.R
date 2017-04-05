@@ -38,6 +38,10 @@ read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
     glucose = `Historic Glucose (mg/dL)`
   )
   res = dplyr::filter(res, !is.na(time))
+  if (nrow(res) == 0) {
+    return(NULL)
+  }
+
   if (complete) {
     res = complete_time_df(res, ...)
   }
