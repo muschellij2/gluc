@@ -4,10 +4,12 @@
 \alias{read_dexcom}
 \title{Read Dexcom Output Data}
 \usage{
-read_dexcom(path)
+read_dexcom(path, raw_sheet = TRUE)
 }
 \arguments{
 \item{path}{Path of .xlsx file.  Must have a sheet named "DexcomRaw" in it}
+
+\item{raw_sheet}{Should the raw or processed sheet be read in?}
 }
 \value{
 If the sheet is not empty, it will return a \code{data.frame} of

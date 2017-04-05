@@ -2,16 +2,21 @@
 #' @description Reads an excel file with Abbot Raw data
 #'
 #' @param path Path of .xlsx file.  Must have a sheet named "AbbottRaw" in it
+#' @param raw_sheet Should the raw or processed sheet be read in?
 #'
 #' @return If the sheet is not empty, it will return a \code{data.frame} of
 #' values.  Otherwise, it will return \code{NULL}
 #' @export
 #' @importFrom readxl read_excel
-read_abbott = function(path) {
+read_abbott = function(path, raw_sheet = TRUE) {
+  sheet = "Abbott"
+  if (raw_sheet) {
+    sheet = paste0(sheet, "Raw")
+  }
   res = read_excel(path = path,
-                   sheet = "AbbottRaw",
+                   sheet = sheet,
                    col_names = TRUE,
-                   skip = 2)
+                   skip = ifelse(raw_sheet, 2, 0))
 
   cnames = c("ID", "Time", "Record Type",
              "Historic Glucose (mg/dL)")
