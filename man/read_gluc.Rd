@@ -4,7 +4,7 @@
 \alias{read_gluc}
 \title{Read Glucose XLS Data file}
 \usage{
-read_gluc(path, type = c("Abbott", "Dexcom"), ...)
+read_gluc(path, type = c("Abbott", "Dexcom", "AbbottRaw", "DexcomRaw"), ...)
 }
 \arguments{
 \item{path}{path of xlsx file}
@@ -15,7 +15,7 @@ read_gluc(path, type = c("Abbott", "Dexcom"), ...)
 \code{type}}
 }
 \value{
-A \code{tbl} data.frame type
+A \code{tbl} data.frame type.
 }
 \description{
 A global function to read the different types of glucose

@@ -23,11 +23,5 @@ read_abbott = function(path, raw_sheet = TRUE) {
   if (all(is.na(res))) {
     return(NULL)
   }
-  # id_row = as.data.frame(res)[1,1]
-  # res = res[-c(1:2),]
-  # colnames(res) = as.character(res[1,])
-  # res = res[-1,]
-  # attr(res, "id_value") = id_row
-  # res = as.data.frame(res)
   return(res)
 }
