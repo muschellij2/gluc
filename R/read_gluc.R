@@ -16,5 +16,8 @@ read_gluc = function(path, type = c("Abbott", "Dexcom"), ...){
          Dexcom = "read_dexcom")
   args = list(path = path, ...)
   res = do.call(what = func, args = args)
+  if (!is.null(res)) {
+    attr(res, "gluc_type") = type
+  }
   return(res)
 }

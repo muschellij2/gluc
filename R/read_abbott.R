@@ -10,18 +10,19 @@
 read_abbott = function(path) {
   res = read_excel(path = path,
                    sheet = "AbbottRaw",
-                   col_names = FALSE)
+                   col_names = TRUE,
+                   skip = 2)
 
   cnames = c("ID", "Time", "Record Type",
              "Historic Glucose (mg/dL)")
   if (all(is.na(res))) {
     return(NULL)
   }
-  id_row = as.data.frame(res)[1,1]
-  res = res[-c(1:2),]
-  colnames(res) = as.character(res[1,])
-  res = res[-1,]
-  attr(res, "id_value") = id_row
+  # id_row = as.data.frame(res)[1,1]
+  # res = res[-c(1:2),]
+  # colnames(res) = as.character(res[1,])
+  # res = res[-1,]
+  # attr(res, "id_value") = id_row
   # res = as.data.frame(res)
   return(res)
 }
