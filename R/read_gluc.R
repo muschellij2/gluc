@@ -17,7 +17,7 @@ read_gluc = function(
 
   type = match.arg(type)
   raw_sheet = grepl("raw$", tolower(type))
-
+  type = gsub("Raw$", "", type)
   func = switch(type,
                 Abbott = "read_abbott",
                 Dexcom = "read_dexcom")
