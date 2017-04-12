@@ -32,7 +32,7 @@ read_dexcom = function(path, raw_sheet = TRUE, complete = TRUE, ...) {
   res$PatientInfoValue = NULL
   ##############################
   # Note Workaround
-  GlucoseDisplayTime = GlucoseValue = time = NULL
+  GlucoseDisplayTime = GlucoseValue = NULL
   rm(list = c("GlucoseDisplayTime", "GlucoseValue", "time"))
   ##############################
 
@@ -41,13 +41,6 @@ read_dexcom = function(path, raw_sheet = TRUE, complete = TRUE, ...) {
     time = GlucoseDisplayTime,
     glucose = GlucoseValue
   )
-  res = dplyr::filter(res, !is.na(time))
-  if (nrow(res) == 0) {
-    return(NULL)
-  }
-
-  if (complete) {
-    res = complete_time_df(res, ...)
-  }
+  res = sheet_check(res, complete = complete)
   return(res)
 }

@@ -29,7 +29,7 @@ read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
   }
   ##############################
   # Note Workaround
-  Time = `Historic Glucose (mg/dL)` = time = NULL
+  Time = `Historic Glucose (mg/dL)` = NULL
   rm(list = c("Time", "Historic Glucose (mg/dL)", "time"))
   ##############################
   res = dplyr::rename(
@@ -37,13 +37,7 @@ read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
     time = Time,
     glucose = `Historic Glucose (mg/dL)`
   )
-  res = dplyr::filter(res, !is.na(time))
-  if (nrow(res) == 0) {
-    return(NULL)
-  }
 
-  if (complete) {
-    res = complete_time_df(res, ...)
-  }
+  res = sheet_check(res, complete = complete)
   return(res)
 }
