@@ -30,7 +30,7 @@ read_abbott = function(path, raw_sheet = TRUE, complete = TRUE, ...
   ##############################
   # Note Workaround
   Time = `Historic Glucose (mg/dL)` = NULL
-  rm(list = c("Time", "Historic Glucose (mg/dL)", "time"))
+  rm(list = c("Time", "Historic Glucose (mg/dL)"))
   ##############################
   res = dplyr::rename(
     res,
