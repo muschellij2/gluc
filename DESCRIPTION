@@ -1,7 +1,7 @@
 Package: gluc
 Type: Package
 Title: Analyzes and Organizes Glucose Monitoring Data
-Version: 0.7.4
+Version: 0.8
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Reads continuous glucose monitoring data from "Abbott" and "Dexcom"
@@ -9,9 +9,11 @@ Description: Reads continuous glucose monitoring data from "Abbott" and "Dexcom"
 License: GPL-2
 Imports: 
     readxl,
+    readr,
     data.table,
     dplyr,
-    pbapply
+    pbapply,
+    lubridate
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

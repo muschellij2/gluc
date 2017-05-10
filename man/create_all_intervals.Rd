@@ -5,7 +5,7 @@
 \alias{create_all_intervals_df}
 \title{Create all time intervals for a recording}
 \usage{
-create_all_intervals(times, interval, interval_unit = "mins")
+create_all_intervals(times, interval = 1, interval_unit = "mins")
 
 create_all_intervals_df(...)
 }

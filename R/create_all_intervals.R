@@ -13,7 +13,7 @@
 #' \code{time} and a logical called \code{grid}
 #' @export
 create_all_intervals = function(times,
-                                interval,
+                                interval = 1,
                                 interval_unit = "mins") {
   time_range = range(times, na.rm = TRUE)
   drange = time_range[2] - time_range[1]

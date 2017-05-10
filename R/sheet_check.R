@@ -8,7 +8,8 @@
 #'
 #' @return Either the completed data.frame or NULL
 #' @export
-#' @importFrom dplyr filter
+#' @importFrom dplyr filter as.tbl
+#' @importFrom lubridate ymd_hms
 sheet_check = function(df, complete = TRUE, ...) {
   ##############################
   # Note Workaround
@@ -17,8 +18,8 @@ sheet_check = function(df, complete = TRUE, ...) {
   ##############################
 
   df = dplyr::filter(df, !is.na(time))
-  # df = dplyr::filter(df, time >= lubridate::ymd("1950-01-01"))
-  df = dplyr::filter(df, time >= as.Date("1950-01-01"))
+  df = dplyr::filter(df, time >= lubridate::ymd_hms("1950-01-01 00:00:00"))
+  # df = dplyr::filter(df, time >= as.Date("1950-01-01"))
   if (nrow(df) == 0) {
     return(NULL)
   }
@@ -30,5 +31,6 @@ sheet_check = function(df, complete = TRUE, ...) {
       df = complete_time_df(df, ...)
     }
   }
+  df = as.tbl(df)
   return(df)
 }
