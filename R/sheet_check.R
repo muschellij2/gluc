@@ -10,7 +10,7 @@
 #' @export
 #' @importFrom dplyr filter as.tbl
 #' @importFrom lubridate ymd_hms
-sheet_check = function(df, complete = TRUE, ...) {
+sheet_check = function(df, complete = FALSE, ...) {
   ##############################
   # Note Workaround
   time = NULL

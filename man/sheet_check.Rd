@@ -4,7 +4,7 @@
 \alias{sheet_check}
 \title{Check and Complete a Sheet}
 \usage{
-sheet_check(df, complete = TRUE, ...)
+sheet_check(df, complete = FALSE, ...)
 }
 \arguments{
 \item{df}{\code{data.frame} of the sheet with \code{time} as a column}

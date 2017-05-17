@@ -23,7 +23,7 @@ first_24 = function(glucose) {
       first24 = time1 + hours(24),
       within_first24 = time <= first24, # flag if within
       time_from_baseline = time - time1) %>% # get diff_time
-    dplyr::select(-time1, first24) %>%
+    dplyr::select(-time1, -first24) %>%
     arrange(tmp_id)
   units(glucose$time_from_baseline) = "mins"
   glucose$tmp_id = NULL

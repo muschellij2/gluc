@@ -10,7 +10,7 @@
 #' other must be specified.  If both are \code{NULL}, then
 #' \code{\link{interval_check}} is run and the minimum interval is used
 #'
-#' @return A \code{data.frame} of all the times in a sequcne
+#' @return A \code{data.frame} of all the times in a sequence
 #' @export
 #' @importFrom dplyr arrange full_join
 complete_time_df = function(df, interval = NULL, interval_unit = NULL) {

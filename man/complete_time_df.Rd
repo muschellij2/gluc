@@ -14,7 +14,7 @@ complete_time_df(df, interval = NULL, interval_unit = NULL)
 \item{interval_unit}{the unit for the intervals}
 }
 \value{
-A \code{data.frame} of all the times in a sequcne
+A \code{data.frame} of all the times in a sequence
 }
 \description{
 Creates all the times for a certain interval and merges
