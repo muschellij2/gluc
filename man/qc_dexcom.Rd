@@ -4,10 +4,10 @@
 \alias{qc_dexcom}
 \title{Quality Control Measures for Dexcom CGMS}
 \usage{
-qc_dexcom(x)
+qc_dexcom(glucose)
 }
 \arguments{
-\item{x}{\code{data.frame} of glucose data with columns of}
+\item{glucose}{\code{data.frame} of glucose data with columns of}
 }
 \value{
 A \code{data.frame} of values with a qc column

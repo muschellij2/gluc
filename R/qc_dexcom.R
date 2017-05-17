@@ -1,17 +1,17 @@
 #' @title Quality Control Measures for Dexcom CGMS
 #' @description Flags points of questionable quality for a Dexcom
 #'
-#' @param x \code{data.frame} of glucose data with columns of
+#' @param glucose \code{data.frame} of glucose data with columns of
 #'
 #' @return A \code{data.frame} of values with a qc column
 #' @note This is a wrapper for \code{\link{first_24}},...
 #' @export
-qc_dexcom = function(x) {
-  max_diff = max(abs(x$time - x$internal_time))
-  x = first_24(x)
+qc_dexcom = function(glucose) {
+  max_diff = max(abs(glucose$time - glucose$internal_time))
+  glucose = first_24(glucose)
 
   L = list(
-    glucose = x,
+    glucose = glucose,
     max_diff = max_diff
   )
   return(L)

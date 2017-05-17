@@ -4,10 +4,10 @@
 \alias{first_24}
 \title{Flag DEXCOM CGMS first 24 hours}
 \usage{
-first_24(x)
+first_24(glucose)
 }
 \arguments{
-\item{x}{\code{data.frame} of glucose data with a column "time"}
+\item{glucose}{\code{data.frame} of glucose data with a column "time"}
 }
 \value{
 A \code{data.frame} of values with additional columns for within
