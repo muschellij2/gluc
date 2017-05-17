@@ -14,7 +14,7 @@
 #' @importFrom dplyr select filter
 #' @importFrom lubridate ymd_hm
 read_abbott_export = function(path,
-                              complete = TRUE,
+                              complete = FALSE,
                               make_numeric = TRUE, ...) {
 
   ##############################

@@ -4,7 +4,7 @@
 \alias{read_dexcom_export}
 \title{Read Dexcom Export Data}
 \usage{
-read_dexcom_export(path, complete = TRUE, make_numeric = TRUE, ...)
+read_dexcom_export(path, complete = FALSE, make_numeric = TRUE, ...)
 }
 \arguments{
 \item{path}{Path of .txt file}

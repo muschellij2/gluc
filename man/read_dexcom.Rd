@@ -4,7 +4,7 @@
 \alias{read_dexcom}
 \title{Read Dexcom Output Data}
 \usage{
-read_dexcom(path, raw_sheet = TRUE, complete = TRUE, make_numeric = TRUE,
+read_dexcom(path, raw_sheet = TRUE, complete = FALSE, make_numeric = TRUE,
   ...)
 }
 \arguments{

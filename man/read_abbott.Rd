@@ -4,7 +4,7 @@
 \alias{read_abbott}
 \title{Read Abbott Output Data}
 \usage{
-read_abbott(path, raw_sheet = TRUE, complete = TRUE, make_numeric = TRUE,
+read_abbott(path, raw_sheet = TRUE, complete = FALSE, make_numeric = TRUE,
   ...)
 }
 \arguments{

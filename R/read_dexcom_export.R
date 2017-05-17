@@ -14,7 +14,7 @@
 #' @importFrom dplyr select filter everything mutate
 #' @importFrom lubridate as.period
 read_dexcom_export = function(path,
-                              complete = TRUE,
+                              complete = FALSE,
                               make_numeric = TRUE, ...) {
 
   ##############################

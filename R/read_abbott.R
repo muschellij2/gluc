@@ -13,7 +13,7 @@
 #' @export
 #' @importFrom readxl read_excel
 #' @importFrom dplyr rename filter
-read_abbott = function(path, raw_sheet = TRUE, complete = TRUE,
+read_abbott = function(path, raw_sheet = TRUE, complete = FALSE,
                        make_numeric = TRUE, ...
                        ) {
   sheet = "Abbott"

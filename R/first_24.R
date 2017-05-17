@@ -12,6 +12,7 @@
 first_24 = function(glucose) {
   tmp_id = time = time1 = first24 = NULL
   rm(list = c("time", "time1", "first24", "tmp_id"))
+
   glucose$tmp_id = seq(nrow(glucose))
   glucose = glucose %>%
     dplyr::arrange(time) %>%
@@ -24,6 +25,7 @@ first_24 = function(glucose) {
       time_from_baseline = time - time1) %>% # get diff_time
     dplyr::select(-time1, first24) %>%
     arrange(tmp_id)
+  units(glucose$time_from_baseline) = "mins"
   glucose$tmp_id = NULL
   return(glucose)
 }

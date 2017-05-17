@@ -13,7 +13,7 @@
 #' @export
 #' @importFrom readxl read_excel
 read_dexcom = function(path, raw_sheet = TRUE,
-                       complete = TRUE, make_numeric = TRUE, ...) {
+                       complete = FALSE, make_numeric = TRUE, ...) {
   sheet = "Dexcom"
 
   if (raw_sheet) {
