@@ -11,7 +11,8 @@
 #' values.  Otherwise, it will return \code{NULL}
 #' @export
 #' @importFrom readr read_tsv
-#' @importFrom dplyr select filter everything
+#' @importFrom dplyr select filter everything mutate
+#' @importFrom lubridate as.period
 read_dexcom_export = function(path,
                               complete = TRUE,
                               make_numeric = TRUE, ...) {

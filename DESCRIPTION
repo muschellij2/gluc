@@ -1,7 +1,7 @@
 Package: gluc
 Type: Package
 Title: Analyzes and Organizes Glucose Monitoring Data
-Version: 0.8
+Version: 0.8.1
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Reads continuous glucose monitoring data from "Abbott" and "Dexcom"
