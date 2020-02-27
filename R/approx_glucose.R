@@ -36,7 +36,7 @@ approx_glucose = function(
     stop(paste0("Either both or neither of interval or interval_unit ",
                 "must be specified if one is "))
   }
-  time_range = range(df$time, na.rm = TRUE)
+  # time_range = range(df$time, na.rm = TRUE)
 
   time_df = create_all_intervals_df(
     times = df$time,
@@ -47,6 +47,6 @@ approx_glucose = function(
   time_df$glucose = fun(time_df$time)
 
   time_df$observed = time_df$time %in% df$time
-
+  time_df$grid = NULL
   return(time_df)
 }
